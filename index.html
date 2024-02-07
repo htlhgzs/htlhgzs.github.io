@@ -1,68 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <title>登录界面</title>
-</head>
-
-<body>
-    <div class="box">
-        <div class="left"></div>
-        <div class="right">
-            <h4>登 录</h4>
-            <form action="./index1.html"> 
-                <!-- <label for="username">用户名</label> -->
-                <input class="acc" type="text" placeholder="用户名">
-                <input class="acc" type="password" placeholder="密码">
-                <div class="text3">您好，由于一些问题，无法注册账号，因此随便输入账号密码即可</div>
-                <input class="submit" type="submit" value="Login">
-                <script type="text/javascript"> 
-                <input type="submit" id="but" value="登录" onclick="return checkuser()"/> 
-            <!-- 返回了true就会打开页面  -->
-                    function getValue(id) { 
-                        return document.getElementById(id).value; 
-                        // 查找元素
-                    } 
-                    function checkuser() { 
-                        if(getValue('uname') == "lhteam && getValue('pwd') == "lhteam") { 
-                            return true; 
-                        }else { 
-                            alert("登录名或密码错误！")
-                            // 警告框
-                            return false; 
-            </form>
-            <div class="fn">
-                <a href="javascript:;">注册账号</a>
-                <a href="javascript:;">找回密码</a>
-            </div>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{layout :: html(htmlType = 'index',content = ~{::content},title = ${'首页' + ' | ' + site.title})}">
+<th:block th:fragment="content">
+    <th:block th:replace="~{macro/app-banner :: app-banner(img=${theme.config.top.index_img})}"/>
+    <div class="relative z-10">
+        <div class="block">
+            <th:block th:replace="~{modules/feature-article :: feature-article}"></th:block>
+            <th:block th:replace="~{modules/main :: main}"></th:block>
         </div>
     </div>
-</body>
+</th:block>
 
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- https://space.bilibili.com/108279272 -->
+<!--data-v-[0-9a-z]*=""-->
